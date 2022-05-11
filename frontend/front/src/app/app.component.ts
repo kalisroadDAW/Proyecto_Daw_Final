@@ -16,12 +16,16 @@ export class AppComponent {
   
   constructor(private _userService: UserService) { 
     this.url = GLOBAL.url;
+    this._userService.userLogged.subscribe(value=>{
+      this.userLogged = value;
+    })
  
     
 
   }
   ngOnInit() {
     this.identity = this._userService.getidentity();
+    this.checkUserLogged();
 
     
 
@@ -34,7 +38,15 @@ export class AppComponent {
 
   logout(){
     this._userService.logout();
+    this._userService.userLogged.next(false);
+
  
+  }
+
+  checkUserLogged(){
+    if(localStorage.getItem('token')!=undefined){
+      this._userService.userLogged.next(true);
+    }
   }
 
   
