@@ -1,0 +1,12 @@
+img{
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 7px solid rgb(6, 101, 179);
+    margin-left: 10%;
+    box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
+    margin-bottom: 5%;
+    
+    
+
+}
