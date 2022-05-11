@@ -19,36 +19,24 @@ export class AppComponent {
     this._userService.userLogged.subscribe(value=>{
       this.userLogged = value;
     })
- 
-    
 
   }
   ngOnInit() {
     this.identity = this._userService.getidentity();
     this.checkUserLogged();
-
-    
-
   }
-
   ngDoCheck() {
     this.identity = this._userService.getidentity();
-    
   }
 
   logout(){
     this._userService.logout();
     this._userService.userLogged.next(false);
-
- 
   }
-
   checkUserLogged(){
     if(localStorage.getItem('token')!=undefined){
       this._userService.userLogged.next(true);
     }
   }
 
-  
-  
 }
