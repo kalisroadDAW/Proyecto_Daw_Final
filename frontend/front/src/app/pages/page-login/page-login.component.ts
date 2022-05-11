@@ -27,6 +27,7 @@ export class PageLoginComponent implements OnInit {
     this.user =new User('','','','','','','ROLE_USER','');
     
     
+    
   }
   
 
@@ -50,8 +51,8 @@ export class PageLoginComponent implements OnInit {
           this.getToken();
             //CONSEGUIR LOS STATS
           this.getCounters();
-
           //userLogged
+          this._userService.userLogged.next(true);
           
           
         

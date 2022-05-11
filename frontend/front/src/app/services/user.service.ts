@@ -14,6 +14,7 @@ export class UserService {
   public identity: any;
   public token: any;
   public stats: any;
+  public userLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   
 
 
