@@ -88,20 +88,19 @@
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
   
-                    <div *ngIf="user.image!=null" class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                  <!--   <div *ngIf="user.image!=null" class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                         <img src="{{url+ 'get-image-user/' + user.image}}" class="rounded-circle" alt="Avatar" />    
         
+                      </div> -->
+
+                      <div class="imagen">
+                        <img src="https://www.pngmart.com/files/17/Universe-Galaxy-Space-PNG-Image.png}" class="rounded-circle" alt="Avatar" />
                       </div>
                       
     
                   </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-  
-                  <img *ngIf="!user.image" class="default-avatar" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" >
-                    
-  
-                </div>
+             
               </div>
             </div>
           </div>

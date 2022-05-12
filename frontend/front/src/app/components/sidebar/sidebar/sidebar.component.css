@@ -90,10 +90,26 @@ span.tags
         margin-top: 10px;
         margin-left:150px;
         
+        
 
 
     }
     .col-sm-12{
         margin-left:5px;
         text-align: center;
+        
+    }
+
+    img{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        position: right;
+        margin-left: 10%;
+        margin-bottom: 5%;
+        box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
+        border: 3px solid rgb(76, 134, 182);
+        
+        
+    
     }

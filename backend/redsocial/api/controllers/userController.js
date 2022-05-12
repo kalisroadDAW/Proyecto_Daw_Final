@@ -220,7 +220,7 @@ function getUsuarios(req, res) {
             if (err) return res.status(500).send({ message: 'Error al comprobar el seguimiento' });
 
             const followed=usuarios_a_los_que_sigo.map(follow=>follow.followed);
-            const following=usuarios_que_me_siguen.map(follow=>follow.user);
+            const followers=usuarios_que_me_siguen.map(follow=>follow.user);
 
 
         
@@ -231,7 +231,7 @@ function getUsuarios(req, res) {
             usuarios_que_me_siguen,
             usuarios_a_los_que_sigo,
             followed,
-            following,
+            followers,
             total,
             pages: Math.ceil(total / itemsPerPage)
         });
@@ -381,8 +381,12 @@ function getCounters (req, res) {
     Publication.find({ 'user': userId }).exec((err, numero_de_publicaciones) => { //muestra todos los 
         if (err) return res.status(500).send({ message: 'Error al comprobar el seguimiento' });
 
+        const followed=usuarios_a_los_que_sigo.map(follow=>follow.followed);
+        const followers=usuarios_que_me_siguen.map(follow=>follow.user);
+        const publications=usuarios_que_me_siguen.map(follow=>follow.user);
+
         return res.status(200).send({
-            following: usuarios_que_me_siguen.length,
+            followers: usuarios_que_me_siguen.length,
             followed: usuarios_a_los_que_sigo.length,
             publications: numero_de_publicaciones.length
             //following: usuarios_que_me_siguen,

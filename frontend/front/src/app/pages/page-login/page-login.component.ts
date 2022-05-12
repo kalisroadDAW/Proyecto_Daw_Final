@@ -51,6 +51,7 @@ export class PageLoginComponent implements OnInit {
           this.getToken();
             //CONSEGUIR LOS STATS
           this.getCounters();
+          console.log(this.getCounters());
           //userLogged
           this._userService.userLogged.next(true);
           
