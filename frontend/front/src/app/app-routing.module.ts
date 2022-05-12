@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageRegisterComponent } from './pages/page-register/page-register.component';
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path: 'register', component: PageRegisterComponent},
   {path: 'gente/:page', component: PageUsersComponent},
   {path: 'gente', component: PageUsersComponent},
+  {path: 'timeline', component: TimelineComponent},
   {path: 'mis-datos', component: PageUserEditComponent},
+ 
 
 
   

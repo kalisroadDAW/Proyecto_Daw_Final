@@ -13,6 +13,7 @@ import { PageRegisterComponent } from './pages/page-register/page-register.compo
 import { PageUserEditComponent } from './pages/page-user-edit/page-user-edit/page-user-edit.component';
 import { PageUsersComponent } from './pages/users/page-users/page-users.component';
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component
 
     PageUserEditComponent,
     PageUsersComponent,
-    SidebarComponent
+    SidebarComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
