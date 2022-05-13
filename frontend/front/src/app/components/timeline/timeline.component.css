@@ -1,8 +1,8 @@
 img{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 7px solid rgb(6, 101, 179);
+    width: 800px;
+    height: 800px;
+    border-radius: 1%;
+    border: 0.5px solid rgb(6, 101, 179);
     margin-left: 10%;
     box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
     margin-bottom: 5%;

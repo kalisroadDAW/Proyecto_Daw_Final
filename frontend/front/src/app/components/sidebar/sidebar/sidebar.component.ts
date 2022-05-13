@@ -3,6 +3,9 @@ import { UserService } from 'src/app/services/user.service';
 import { GLOBAL } from 'src/app/services/global';
 import { User } from 'src/app/models';
 import { Publication } from 'src/app/models/publication';
+import { PublicationService } from 'src/app/services/publication.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,9 +22,10 @@ export class SidebarComponent implements OnInit {
   public url: string;
   public followers:number;
   public publication:Publication;
+  public form: Form
 
   constructor(
-    private _userService: UserService
+    private _userService: UserService, private _publicationService: PublicationService
   ) { 
     this.identity = this._userService.getidentity();
     this.token = this._userService.gettoken();
@@ -29,14 +33,35 @@ export class SidebarComponent implements OnInit {
     this.stats = JSON.parse(this._userService.getStats());
     this.publication = new Publication('','','','','this.identity._id',);
     
+    
   
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    console.log(this.publication);
+  onSubmit(form:any){
+    this._publicationService.addPublication(this.token, this.publication).subscribe(
+      response => {
+        if(response.publication){
+          this.status = 'success';
+          this.publication = response.publication;
+          console.log(response.publication);
+          
+      }
+      else{
+        this.status = 'error';
+
+      }
+      (error: any) => {
+        var errorMessage = <any>error;
+        console.log(errorMessage);
+        if(errorMessage != null){
+          this.status = 'error';
+
+        }
+      }
+    });
 
   }
 

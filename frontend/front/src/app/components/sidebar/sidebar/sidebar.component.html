@@ -30,22 +30,26 @@
                 </div>
                 <div id="new-publication" style="margin-left:8%">
                     <h2> <strong>New Publication</strong></h2>
-                    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+                    <form #registerForm="ngForm" (ngSubmit)="onSubmit(form)">
                         <div class="form-group">
                             <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" class="form-control" placeholder="What's on your mind?"></textarea>
-                            <span class="help-block" *ngIf="text.invalid && text.touched">You need to write something</span>
+                            <span class="help-block" *ngIf="status=='error'" style="color:red"><strong>You need to write something</strong></span>
                             <br>
                             <input type="file" name="image" #image="ngModel" [(ngModel)]="publication.file" class="form-control" placeholder="Image">
                             <span class="help-block" *ngIf="image.invalid && image.touched">You need to upload an image</span>
                             <br>
-                            <button type="submit" class="btn btn-primary btn-block" [disabled]="registerForm.invalid">Publicate</button>
+                            <button type="submit" class="btn btn-primary btn-block" [disabled]="registerForm.invalid" >Publicate</button>
                             
                         </div>
                     </form>
-                    
+
+                   
                
                 </div>
             </div>
     	 </div>                 
 		</div>
 	</div>
+
+  hola
+                    

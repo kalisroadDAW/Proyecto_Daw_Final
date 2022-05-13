@@ -100,16 +100,16 @@ function getPublications(req, res) {
          follows.forEach((follow) => { //recorremos
             follows_clean.push(follow.followed);
         }); 
-/* 
+
         Publication.find({user:{"$in": follows_clean}}).sort('created_at').populate('user').paginate(page, itemsPerPage, (err, publications, total) => {
-            if (err) return res.status(500).send({ message: 'Error al devolver la publicacion'});  */
+            if (err) return res.status(500).send({ message: 'Error al devolver la publicacion'});  
 
 
-   Publication.find({user:{"$in": follows_clean}}).sort('created_at').populate('user').select({ '_id': 0, '__v': 0, 'password': 0 }).paginate(page, itemsPerPage, (err, publications, total) => {
-    if (err) return res.status(500).send({ message: 'Error al devolver la publicacion'});
+   /* Publication.find({user:{"$in": follows_clean}}).sort('created_at').populate('user').select({ '_id': 0, '__v': 0, 'password': 0 }).paginate(page, itemsPerPage, (err, publications, total) => {
+    if (err) return res.status(500).send({ message: 'Error al devolver la publicacion'}); */
 
     if (!publications) return res.status(404).send({ message: 'No hay publicaciones'});
-
+    
     return res.status(200).send({
         total_items: total,
         pages: Math.ceil(total/itemsPerPage),
