@@ -104,6 +104,7 @@ export class PageLoginComponent implements OnInit {
       },
       error => {
         console.log(<any>error);
+        console.log("no encuentro stats")
       }
     )
   }
