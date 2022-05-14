@@ -10,6 +10,7 @@ import { Follow } from 'src/app/models/follow';
 import { FollowService } from 'src/app/services/follow.service';
 import { PublicationService } from 'src/app/services/publication.service';
 
+
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
@@ -27,6 +28,7 @@ export class TimelineComponent implements OnInit {
   public url: string;
   public follows: any;
   public publications: any;
+  public items_per_page: number;
 
 
   constructor(
@@ -106,7 +108,7 @@ export class TimelineComponent implements OnInit {
     )
   }
 
-  getPublications(page: any) {
+  getPublications(page: any, adding=false) {
     this._publicationService.getPublications(this.token, page).subscribe(
       response => {
         
@@ -115,6 +117,21 @@ export class TimelineComponent implements OnInit {
           this.total = response.total_items;
           this.pages = response.pages;
           this.status = 'success';
+          this.items_per_page = response.items_per_page;
+
+          if (!adding) {
+            this.publications = response.publications;
+          } else {
+            var arrayA = this.publications;
+            var arrayB = response.publications;
+            this.publications = arrayA.concat(arrayB);
+            
+
+         
+
+
+
+          }
           console.log(response);
           if (page > this.pages) {
             this._router.navigate(['/home']);
@@ -134,6 +151,20 @@ export class TimelineComponent implements OnInit {
       }
     )
 
+  }
+
+  public noMore = false;
+
+  viewMore(){
+   if(this.publications.length == this.total){
+     
+     this.noMore=true;
+     
+   }else{
+    this.page+=1;
+
+   }
+   this.getPublications(this.page,true);
   }
 
   

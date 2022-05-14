@@ -101,6 +101,8 @@ function getPublications(req, res) {
             follows_clean.push(follow.followed);
         }); 
 
+        follows_clean.push(req.user.sub); //añadimos el usuario registrado a la lista de usuarios seguidos
+
         Publication.find({user:{"$in": follows_clean}}).sort('created_at').populate('user').paginate(page, itemsPerPage, (err, publications, total) => {
             if (err) return res.status(500).send({ message: 'Error al devolver la publicacion'});  
 

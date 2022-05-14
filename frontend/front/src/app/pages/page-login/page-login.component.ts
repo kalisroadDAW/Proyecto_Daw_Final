@@ -39,6 +39,7 @@ export class PageLoginComponent implements OnInit {
     this._userService.login(this.user, null).subscribe(
       response => {
         this.identity = response.user;
+        
         console.log(this.identity);
         if (!this.identity || !this.identity._id) {
           this.status = 'error';
@@ -50,11 +51,11 @@ export class PageLoginComponent implements OnInit {
           //CONSEGUIR EL TOKEN
           this.getToken();
             //CONSEGUIR LOS STATS
-          this.getCounters();
+        
           console.log(this.getCounters());
           //userLogged
           this._userService.userLogged.next(true);
-          
+          this.getCounters();
           
         
         }
