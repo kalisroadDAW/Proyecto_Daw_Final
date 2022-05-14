@@ -10,9 +10,8 @@
               <table *ngFor="let user of users" class="table manage-candidates-top mb-0">
                 <thead>
                   <tr>
-                    <th>Candidate Name</th>
-                    <th class="text-center">Status</th>
-                    <th class="action text-right">Action</th>
+                    <th>User Name
+                 
                   </tr>
                 </thead>
                 <tbody>
@@ -28,18 +27,12 @@
                             <h5 class="mb-0"><a href="#">{{user.name + ' '+user.nick}}</a></h5>
                           </div>
                           <div class="candidate-list-option">
-                            <ul class="list-unstyled">
-                              <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                              <li><i class="fas fa-map-marker-alt pr-1"></i>Rolling Meadows, IL 60008</li>
-                            </ul>
+                        
                           </div>
                         </div>
                       </div>
                     </td>
-                    <td class="candidate-list-favourite-time text-center">
-                      <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                      <span class="candidate-list-time order-1">Shortlisted</span>
-                    </td>
+                  
                     <td>
                       <ul class="list-unstyled mb-0 d-flex justify-content-end">
                         <li><button (click)="followUser(user._id)" class="btn btn-primary" *ngIf="follows.indexOf(user._id)<0">follow</button></li>

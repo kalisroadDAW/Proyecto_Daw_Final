@@ -10,38 +10,56 @@
               <table *ngFor="let publication of publications" class="table manage-candidates-top mb-0">
                 <thead>
                   <tr>
-                    <th>Candidate Name</th>
-                    <th class="text-center">Status</th>
-                    <th class="action text-right">Action</th>
+                    <th>{{publication.user.nick}} </th>
+                    
+                    
+                     
+             
+                    <th class="text-center">Do you like this?</th>
+
+                    <th class="text-center">Action</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="candidates-list">
                     <td class="title">
                       <div class="thumb">
-                        <img *ngIf="publication.image" class="img-fluid" src="{{url + 'get-image-user/' + publication.image}}" >
-                        <img *ngIf="!publication.image" class="default-avatar" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" >
+                        <a href="#" style="margin-left:1px"> <img *ngIf="publication.user.image"  src="{{url+ 'get-image-user/' + publication.user.image}}"
+                          class="avatar-timeline"  alt="Avatar" /> 
+                      </a>
+                       <ng-template #elseblock>
+                         <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" class="avatar-timeline"  alt="Avatar" />
+                       </ng-template>
+                        
+                       
                       </div>
+                      
                       <div class="candidate-list-details">
                         <div class="candidate-list-info">
                           <div class="candidate-list-title">
-                            <h5 class="mb-0"><a href="#">{{publication.user.name + ' '+publication.user.nick}}</a></h5>
-                            <h5 class="mb-0"><a href="#">{{publication.text + ' '+publication.user.nick}}</a></h5>
+                            
+ 
                           </div>
                           <div class="candidate-list-option">
                             <ul class="list-unstyled">
-                              <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                              <li><i class="fas fa-map-marker-alt pr-1"></i>Rolling Meadows, IL 60008</li>
+                         
                             </ul>
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="candidate-list-favourite-time text-center">
-                      <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                      <span class="candidate-list-time order-1">Shortlisted</span>
+                      <a class="candidate-list-favourite order-2 text-danger" href="#"></a>
+                      <span class="candidate-list-time order-1"><img *ngIf="publication.image" class="img-fluid" src="{{url + 'get-image-user/' + publication.image}}" >
+                        <article class="cita">
+                          {{publication.text}}
+  
+                        </article></span>
                     </td>
                     <td>
+
+                      <i class="fas fa-heart"></i>
                   
                     </td>
                   </tr>

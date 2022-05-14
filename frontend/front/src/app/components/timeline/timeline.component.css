@@ -1,4 +1,4 @@
-img{
+/* img{
     width: 800px;
     height: 800px;
     border-radius: 1%;
@@ -9,7 +9,22 @@ img{
     
     
 
+} */
+
+.avatar-timeline{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid rgb(76, 134, 182);
+    margin-right: 21%;
+    box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
+    margin-bottom: 5%;
+    
+    
+
 }
+
+
 
 .left{
     margin-left: -30%;
@@ -24,3 +39,4 @@ app-sidebar{
 .col-md-12{
     margin-left: 10%;
 }
+
