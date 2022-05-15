@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models';
@@ -11,13 +11,13 @@ import { FollowService } from 'src/app/services/follow.service';
 import { PublicationService } from 'src/app/services/publication.service';
 
 
-
 @Component({
-  selector: 'app-timeline',
-  templateUrl: './timeline.component.html',
-  styleUrls: ['./timeline.component.css']
+  selector: 'app-publications',
+  templateUrl: './publications.component.html',
+  styleUrls: ['./publications.component.css']
 })
-export class TimelineComponent implements OnInit {
+export class PublicationsComponent implements OnInit {
+
   public identity: any;
   public token: string;
   public page: any;
@@ -30,6 +30,7 @@ export class TimelineComponent implements OnInit {
   public follows: any;
   public publications: any;
   public items_per_page: number;
+  @Input() user: any;
 
 
   constructor(
@@ -43,11 +44,15 @@ export class TimelineComponent implements OnInit {
     this.token = this._userService.gettoken();
     this.url = GLOBAL.url;
     this.page=1;
+    
+    
   }
 
   ngOnInit(): void {
+
+    
    
-    this.getPublications(this.page);
+    this.getPublications(this.user,this.page);
     
   }
 
@@ -109,11 +114,12 @@ export class TimelineComponent implements OnInit {
     )
   }
 
-  getPublications(page: any, adding=false) {
-    this._publicationService.getPublications(this.token, page).subscribe(
+  getPublications(user:User,page: any, adding=false) {
+    this._publicationService.getPublicationsUser(this.token,user, page).subscribe(
       response => {
         
         if (response.publications) {
+          
           this.publications = response.publications;
           this.total = response.total_items;
           this.pages = response.pages;
@@ -157,19 +163,13 @@ export class TimelineComponent implements OnInit {
   public noMore = false;
 
   viewMore(){
-   if(this.publications.length == this.total){
+    this.page+=1;
+   if(this.page == this.pages){
      
      this.noMore=true;
      
-   }else{
-    this.page+=1;
-
    }
-   this.getPublications(this.page,true);
-  }
-
-  refresh(event: any) {
-    this.getPublications(1);
+   this.getPublications(this.user,this.page,true);
   }
 
   

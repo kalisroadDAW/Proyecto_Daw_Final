@@ -133,38 +133,45 @@ function loginUser(req, res) {
 //creamos un método que nos poermita listar los datos de un usuario
 
 function getUser(req, res) {
-    var userId = req.params.id; //recogemos el id que nos llega por la url
-
-
+    var userId = req.params.id;
+ 
     User.findById(userId, (err, user) => {
-        if (err) return res.status(500).send({ message: 'Error en la petición' });
-
-        if (!user) return res.status(404).send({ message: 'El usuario no existe' });
-
-        Follow.findOne({ 'user': req.user.sub, 'followed': userId }).exec((err, miUser) => { //comprueba que el usuario registrado sigue al usuario pasado por la url
-            if (err) return res.status(500).send({ message: 'Error al comprobar el seguimiento' });
-
-            Follow.find({ 'followed': userId }).exec((err, seguidores) => { //comprueba que el usuario registrado sigue al usuario pasado por la url
-                if (err) return res.status(500).send({ message: 'Error al comprobar el seguimiento' });
-
-                Follow.find({ 'user': userId }).exec((err, seguidos) => { //muestra todos los 
-                    if (err) return res.status(500).send({ message: 'Error al comprobar el seguimiento' });
-
-
-
-                    //repetir operación pero con el following
-
-
-
-                    return res.status(200).send({ user, miUser, seguidores, seguidos });
-                }
-                );
-            }
-            );
-        }
-        );
+        if (err) return res.status(500).send({message: 'Error en la petición'});
+ 
+        if (!user) return res.status(404).send({message: 'El usuario no existe'});
+ 
+        followThisUser(req.user.sub, userId).then((value) => {
+            user.password = undefined;
+            return res.status(200).send({
+                user,
+                following: value.following,
+                followed: value.followed
+            });
+        });        
+    });
+}
+ 
+//funcion asincrona, con llamadas sincronas dentro.Cuando se ejecute algo se espere a que se consiga el 
+//resultado y despues pase a lo siguiente
+//await es para que espere a que el find nos devuelva el resultado y lo guarda en cada variable ahí si
+//como si fuera sincrono
+async function followThisUser(identity_user_id, user_id) {
+    var following = await Follow.findOne({ "user": identity_user_id, "followed": user_id }).exec().then((follow) => {
+        return follow;
+    }).catch((err) => {
+        return handleError(err);
+    });
+ 
+    var followed = await Follow.findOne({ "user": user_id, "followed": identity_user_id }).exec().then((follow) => {
+        return follow;
+    }).catch((err) => {
+        return handleError(err);
+    });
+ 
+    return {
+        following: following,
+        followed: followed
     }
-    );
 }
 
 /*    followThisUser(req.user.sub, userId).then((value)=>{
@@ -407,6 +414,7 @@ function getCounters (req, res) {
 
 
 
+
 //exportamos las funciones para poder usarlas en otro fichero
 
 
@@ -420,5 +428,6 @@ module.exports = {
     updateUser,
     uploadImage,
     getImageFile,
-    getCounters
+    getCounters,
+   
 }

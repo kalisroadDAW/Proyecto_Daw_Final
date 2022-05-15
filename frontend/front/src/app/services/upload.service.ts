@@ -16,7 +16,7 @@ export class UploadService {
    makeFileRequest(
     url: string,
     params: Array<string>,
-    files: Array<File>,
+    files: Array<any>,
     token: string,
     name: string
    ){

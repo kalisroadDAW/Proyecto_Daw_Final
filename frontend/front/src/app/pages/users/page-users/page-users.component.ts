@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { GLOBAL } from 'src/app/services/global';
 import { User } from 'src/app/models';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params, } from '@angular/router';
 import { FollowService } from 'src/app/services/follow.service';
 import { Follow } from 'src/app/models/follow';
 

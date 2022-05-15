@@ -15,6 +15,8 @@ import { PageUsersComponent } from './pages/users/page-users/page-users.componen
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { MomentModule } from 'ngx-moment';
+import { PublicationsComponent } from './components/publications/publications.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -29,7 +31,9 @@ import { MomentModule } from 'ngx-moment';
     PageUserEditComponent,
     PageUsersComponent,
     SidebarComponent,
-    TimelineComponent
+    TimelineComponent,
+    PublicationsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

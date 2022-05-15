@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './components/profile/profile.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 
 import { PageLoginComponent } from './pages/page-login/page-login.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'gente', component: PageUsersComponent},
   {path: 'timeline', component: TimelineComponent},
   {path: 'mis-datos', component: PageUserEditComponent},
+  {path: 'user/:id', component: ProfileComponent},
  
 
 
