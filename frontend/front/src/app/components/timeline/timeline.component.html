@@ -26,9 +26,9 @@
                        </ng-template>
                       </div>
                     
-                    <td class="publicacion" *ngIf="publication.image" > 
+                    <td class="publicacion" *ngIf="publication.file" > 
                       <a href="#"></a>
-                      <span><img   src="{{url + 'get-image-user/' + publication.image}}" >
+                      <span><img   src="{{url + 'get-image-pub/' + publication.file}}" >
                         <article class="cita" style="text-align:justify;">
                           <small>{{ (publication.created_at|  amFromUnix | amLocale:'gb'| amTimeAgo) }}</small>
                           
@@ -36,7 +36,7 @@
                           {{publication.text}}
                         </article></span>
                     </td>
-                    <td class="publicacion" *ngIf="!publication.image">
+                    <td class="publicacion" *ngIf="!publication.file">
                       <div class="date">
                         
                       </div>
