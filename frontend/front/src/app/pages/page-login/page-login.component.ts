@@ -51,11 +51,13 @@ export class PageLoginComponent implements OnInit {
           //CONSEGUIR EL TOKEN
           this.getToken();
             //CONSEGUIR LOS STATS
+            this.getCounters();
+           
         
           console.log(this.getCounters());
           //userLogged
           this._userService.userLogged.next(true);
-          this.getCounters();
+          
           
         
         }
@@ -98,7 +100,6 @@ export class PageLoginComponent implements OnInit {
   getCounters(){
     this._userService.getCounters().subscribe(
       response => {
-        console.log(response);
         localStorage.setItem('stats', JSON.stringify(response));
         this.status = 'success';
         this._router.navigate(['/']);

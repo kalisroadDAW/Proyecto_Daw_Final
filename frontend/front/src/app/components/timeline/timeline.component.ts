@@ -11,6 +11,7 @@ import { FollowService } from 'src/app/services/follow.service';
 import { PublicationService } from 'src/app/services/publication.service';
 
 
+
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',

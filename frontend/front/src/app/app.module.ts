@@ -14,6 +14,9 @@ import { PageUserEditComponent } from './pages/page-user-edit/page-user-edit/pag
 import { PageUsersComponent } from './pages/users/page-users/page-users.component';
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
+import { MomentModule } from 'ngx-moment';
+
+
 
 
 @NgModule({
@@ -21,6 +24,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     AppComponent,
     PageLoginComponent,
     PageRegisterComponent,
+    
 
     PageUserEditComponent,
     PageUsersComponent,
@@ -31,8 +35,9 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MomentModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
