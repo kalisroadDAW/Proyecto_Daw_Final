@@ -1,15 +1,17 @@
-/* img{
-    width: 800px;
-    height: 800px;
-    border-radius: 1%;
-    border: 0.5px solid rgb(6, 101, 179);
-    margin-left: 10%;
+img{
+    width: 350px;
+    height: 350px;
+    border-radius: 3%;
+    border: 2px solid rgb(6, 101, 179);
+    margin-left: -6%;
     box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
     margin-bottom: 5%;
+    margin-top: 10%;
+    
     
     
 
-} */
+} 
 
 .avatar-timeline{
     width: 65px;

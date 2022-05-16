@@ -12,11 +12,11 @@ import { PublicationService } from 'src/app/services/publication.service';
 
 
 @Component({
-  selector: 'app-publications',
-  templateUrl: './publications.component.html',
-  styleUrls: ['./publications.component.css']
+  selector: 'app-pics',
+  templateUrl: './pics.component.html',
+  styleUrls: ['./pics.component.css']
 })
-export class PublicationsComponent implements OnInit {
+export class PicsComponent implements OnInit {
 
   public identity: any;
   public token: string;
@@ -134,11 +134,6 @@ export class PublicationsComponent implements OnInit {
             this.publications = arrayA.concat(arrayB);
 
             
-            
-
-         
-
-
 
           }
           console.log(response);

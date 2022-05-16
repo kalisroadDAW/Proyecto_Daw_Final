@@ -26,6 +26,11 @@ img{
 
 }
 
+.tabla{
+    overflow-y: scroll;
+   
+}
+
  .publicacion{
     width: 100%;
     height: auto;
@@ -43,7 +48,7 @@ img{
 
 small{
     font-size: 0.8em;
-    color: rgb(6, 101, 179);
+    color: rgb(6, 85, 150);
 }
 
 article{
@@ -74,6 +79,4 @@ app-sidebar{
 .col-md-12{
     margin-left: 10%;
 }
-
-
 

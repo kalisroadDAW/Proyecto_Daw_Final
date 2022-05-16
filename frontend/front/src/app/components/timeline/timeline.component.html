@@ -25,6 +25,11 @@
                          <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" class="avatar-timeline"  alt="Avatar" />
                        </ng-template>
                       </div>
+
+
+                   
+
+                      
                     
                     <td class="publicacion" *ngIf="publication.file" > 
                       <a href="#"></a>
@@ -34,7 +39,14 @@
                           
                           <br>
                           {{publication.text}}
-                        </article></span>
+                         
+                          <td class="boton-borrar" style="height:40px"*ngIf="publication.user._id ==identity._id">
+                            <br>
+
+                            <button class="btn btn-warning btn-sm" ><small>Remove</small></button>
+                          </td>
+                        </article>
+                      </span>
                     </td>
                     <td class="publicacion" *ngIf="!publication.file">
                       <div class="date">
@@ -44,7 +56,13 @@
                         <small>{{ (publication.created_at|  amFromUnix | amLocale:'gb' | amTimeAgo) }}</small>
                         <br>
                         {{publication.text}}
-                      </article></span>
+                        <td class="boton-borrar" style="height:40px"*ngIf="publication.user._id ==identity._id">
+                          <br>
+
+                          <button class="btn btn-light btn-sm" ><small>Remove</small></button>
+                        </td>
+                      </article>
+                    </span>
                   </tr> 
                 <br>
                 </tbody>

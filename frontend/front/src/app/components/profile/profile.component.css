@@ -7,42 +7,7 @@ app-sidebar{
 }
 
 img{
-    width: 125px;
-    height: 125px;
+    border: 4px solid rgb(6, 101, 179);
+    box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
 }
 
-body{
-    background-color:red;
-}
-
-.address-content{
-    font-size:13px;
-}
-
-.card{
-    height:100%;
-}
-
-.content-aboutme span{
-    font-size:13px;
-}
-
-.portfolio-content p{
-    
-    font-size:13px;
-}
-
-.badge{
-    
-    font-size:11px;
-    font-weight:600;
-}
-
-.stats{
-    text-align:center;
-    
-}
-
-app-publications{
-    overflow: auto;
-}

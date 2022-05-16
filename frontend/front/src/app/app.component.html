@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="#">Login</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" *ngIf="identity">
       <span class="navbar-toggler-icon" ></span>
     </button>
@@ -10,17 +10,19 @@
           <a class="nav-link active" aria-current="page" href="/timeline">Timeline</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/gente">Gente</a>
+          <a class="nav-link" href="/gente">People</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mis-datos">Mis datos</a>
+          <a class="nav-link" href="mis-datos">My data</a>
         </li>
       </ul>
-      <span class="navbar-text">
+      <a [routerLink]="'user/this.user_id'"><span class="navbar-text">
         <img *ngIf="identity && identity.image else elseblock"  src="{{url+ 'get-image-user/' + identity.image}}" class="rounded-circle"  alt="Avatar" /> 
         <ng-template #elseblock>
-          <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" class="rounded-circle-def"  alt="Avatar" />
+        <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" class="rounded-circle-def"  alt="Avatar" />
         </ng-template>
+      </span>
+      </a>
 
         
        
@@ -30,12 +32,12 @@
 
       
 
-     </span>
+     
 
      
       <span class="navbar-text">
          
-        <a class="btn btn" href="/login" (click)="logout()">Cerrar sesión</a>
+        <a class="btn btn" href="/login" (click)="logout()">Logout</a>
        
         
 

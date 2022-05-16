@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PicsComponent } from './components/pics/pics.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path: 'gente', component: PageUsersComponent},
   {path: 'timeline', component: TimelineComponent},
   {path: 'mis-datos', component: PageUserEditComponent},
+  {path: 'pictures', component: PicsComponent},
   {path: 'user/:id', component: ProfileComponent},
+  {path: '', component: PageLoginComponent},
  
 
 
