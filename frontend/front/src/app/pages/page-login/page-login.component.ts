@@ -102,7 +102,7 @@ export class PageLoginComponent implements OnInit {
       response => {
         localStorage.setItem('stats', JSON.stringify(response));
         this.status = 'success';
-        this._router.navigate(['/']);
+        this._router.navigate(['/timeline']);
       },
       error => {
         console.log(<any>error);
