@@ -30,4 +30,9 @@ export class FollowService {
     return this._http.delete(this.url+'unfollow/'+id, {headers: headers});
 
   }
+  getMyFollows(token:any):Observable<any>{
+    let headers=new HttpHeaders (). set('Content-Type', 'application/json')
+                                    .set('Authorization', token);
+    return this. _http.get(this.url+'get-my-follows/', {headers: headers});
+}
 }
