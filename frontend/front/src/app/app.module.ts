@@ -18,6 +18,7 @@ import { MomentModule } from 'ngx-moment';
 import { PublicationsComponent } from './components/publications/publications.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PicsComponent } from './components/pics/pics.component';
+import { MessageComponent } from './pages/message/message.component';
 
 
 
@@ -36,6 +37,7 @@ import { PicsComponent } from './components/pics/pics.component';
     PublicationsComponent,
     ProfileComponent,
     PicsComponent,
+    MessageComponent,
     
     
    

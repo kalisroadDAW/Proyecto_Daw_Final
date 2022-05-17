@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class PageLoginComponent implements OnInit {
   public identity: any 
   public token: string;
   public userLogged:boolean;
+  public form: FormGroup;
 
 
   constructor(
@@ -34,7 +36,7 @@ export class PageLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(form:FormGroup) {
     //LOGUEAR AL USUARIO Y CONSEGUIR SUS DATOS
     this._userService.login(this.user, null).subscribe(
       response => {
@@ -52,6 +54,7 @@ export class PageLoginComponent implements OnInit {
           this.getToken();
             //CONSEGUIR LOS STATS
             this.getCounters();
+            
            
         
           console.log(this.getCounters());
