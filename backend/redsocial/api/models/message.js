@@ -4,7 +4,7 @@
 
 var mongoose = require('mongoose'); //cargamos el módulo mongoose
 
-var Schema = moongose.Schema; //creamos un objeto schema
+var Schema = mongoose.Schema;
 
 //más tarde podemos darle nomenclatura científica a los modelos
 
@@ -15,6 +15,7 @@ var MessageSchema = Schema({  //creamos la estructura de los objetos -- una enti
   receiver: { type: Schema.ObjectId, ref: 'User' }, //referencia a un usuario
   text: String,
   created_at: String,
+  viewed: Boolean,
 
  });
 

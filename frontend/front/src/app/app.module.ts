@@ -35,7 +35,10 @@ import { PicsComponent } from './components/pics/pics.component';
     TimelineComponent,
     PublicationsComponent,
     ProfileComponent,
-    PicsComponent
+    PicsComponent,
+    
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { PicsComponent } from './components/pics/pics.component';
     MomentModule,
     HttpClientModule,
     RouterModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,10 @@ var follow_routes = require('./routes/followRoutes');
 
 var publication_routes= require('./routes/publicationRoutes');
 
+var message_routes=require('./routes/messageRoutes');
+
+
+
 
 
 
@@ -57,6 +61,8 @@ app.use('/api', user_routes);
 app.use('/api', follow_routes);
 
 app.use('/api', publication_routes);
+
+app.use('/api',message_routes);
 
 
 
