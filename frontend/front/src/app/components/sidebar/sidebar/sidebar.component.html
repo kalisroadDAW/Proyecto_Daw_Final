@@ -6,7 +6,7 @@
                 <div class="col-xs-12 col-sm-8">
                    
                     <div vlass="avatar">
-                        <img *ngIf="!identity.image" class="default-avatar" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" >
+                        <img *ngIf="!identity.image" class="default-avatar" src="assets/SPACE.jpg" >
                         <img *ngIf="identity.image" src="{{url+ 'get-image-user/' + identity.image}}" class="rounded-circle" alt="Avatar" />
                     </div>
                     <h2><strong>{{identity.nick.toUpperCase()}}</strong></h2>
@@ -17,16 +17,16 @@
             </div>
             <div class="enfila"></div>           
             <div class="col-xs-12 divider text-center" style="margin-left:23%" >
-                <div class="col-xs-12 col-sm-4 emphasis" >
-                    <h2><strong *ngIf="stats.followers;else nofollowers"> {{stats.followers}} </strong></h2>
+                <div class="col-xs-12 col-sm-4 " >
+                    <h2><strong  *ngIf="stats.followers;else nofollowers"> {{stats.followers}} </strong></h2>
                     <ng-template #nofollowers> <h2><strong>0</strong></h2> </ng-template>                  
-                    <p><small>Followers</small></p>
+                    <p><small class="emphasis">Followers</small></p>
                     <h2><strong *ngIf="stats.followed;else nofollowing">{{stats.followed}}</strong></h2> 
                     <ng-template #nofollowing> <h2><strong>0</strong></h2> </ng-template>                     
-                    <p><small>Following</small></p>
+                    <p><small class="emphasis">Following</small></p>
                     <h2><strong *ngIf="stats.publications;else nonpubs">{{stats.publications}}</strong></h2>  
                     <ng-template #nonpubs> <h2><strong>0</strong></h2> </ng-template>                   
-                    <p><small>publications</small></p> 
+                    <p><small class="emphasis">publications</small></p> 
                 </div>
                 <div id="new-publication" style="margin-left:8%">
                     <h2> <strong>New Publication</strong></h2>

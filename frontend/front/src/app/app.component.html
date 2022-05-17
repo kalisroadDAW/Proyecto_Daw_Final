@@ -19,7 +19,7 @@
       <a [routerLink]="'user/this.user_id'"><span class="navbar-text">
         <img *ngIf="identity && identity.image else elseblock"  src="{{url+ 'get-image-user/' + identity.image}}" class="rounded-circle"  alt="Avatar" /> 
         <ng-template #elseblock>
-        <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" class="rounded-circle-def"  alt="Avatar" />
+        <img src="assets/SPACE.jpg" class="rounded-circle-def"  alt="Avatar" />
         </ng-template>
       </span>
       </a>
@@ -50,4 +50,7 @@
 
 
 
+
+
 <router-outlet></router-outlet>
+

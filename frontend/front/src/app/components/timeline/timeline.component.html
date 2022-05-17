@@ -1,5 +1,7 @@
 <app-sidebar (sended)="refresh($event)" ></app-sidebar>
 
+
+
 <div class="left">
 
   <div class="container mt-3 mb-4" style="margin-left:26%">
@@ -15,32 +17,30 @@
                    
                       <div class="thumb" style="width: 150px; text-align: justify; margin-bottom:10px">
                         <td class="title">
-                        <strong><a href="">{{publication.user.nick}}</a></strong>
+                        <strong><a href="/user/{{publication.user._id}}">{{publication.user.nick}}</a></strong>
+                        
                       </td>
                       
-                        <a href="#" style="margin-left:1px;"><img *ngIf="publication.user.image"  src="{{url+ 'get-image-user/' + publication.user.image}}"
+                        <a href="/user/{{publication.user._id}}" style="margin-left:1px;"><img *ngIf="publication.user.image"  src="{{url+ 'get-image-user/' + publication.user.image}}"
                           class="avatar-timeline"  alt="Avatar" /> 
                       </a>
                        <ng-template #elseblock>
-                         <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" class="avatar-timeline"  alt="Avatar" />
+                         <img src="assets/SPACE.jpg" class="avatar-timeline"  alt="Avatar" />
                        </ng-template>
                       </div>
 
 
-                   
-
-                      
                     
-                    <td class="publicacion" *ngIf="publication.file" > 
-                      <a href="#"></a>
-                      <span><img   src="{{url + 'get-image-pub/' + publication.file}}" >
-                        <article class="cita" style="text-align:justify;">
+                    <td class="publicacion" *ngIf="publication.file" style="border-radius:5%"> 
+                      <a href="/user/{{publication.user._id}}"></a>
+                      <span style="border-radius:5%"><img   src="{{url + 'get-image-pub/' + publication.file}}" style="margin-left:-5px;">
+                        <article class="cita" style="text-align:justify;" style="border-radius:5%">
                           <small>{{ (publication.created_at|  amFromUnix | amLocale:'gb'| amTimeAgo) }}</small>
                           
                           <br>
                           {{publication.text}}
                          
-                          <td class="boton-borrar" style="height:40px"*ngIf="publication.user._id ==identity._id">
+                          <td class="boton-borrar" style="height:40px"*ngIf="publication.user._id ==identity._id" style="border-radius:5%">
                             <br>
 
                             <button class="btn btn-warning btn-sm" ><small>Remove</small></button>
@@ -48,15 +48,15 @@
                         </article>
                       </span>
                     </td>
-                    <td class="publicacion" *ngIf="!publication.file">
+                    <td class="publicacion" *ngIf="!publication.file" style="border-radius:5%">
                       <div class="date">
                         
                       </div>
-                      <span><article class="cita" style="text-align:justify; margin-left:10px;">
+                      <span style="border-radius:5%"><article class="cita" style="text-align:justify; margin-left:10px;">
                         <small>{{ (publication.created_at|  amFromUnix | amLocale:'gb' | amTimeAgo) }}</small>
                         <br>
                         {{publication.text}}
-                        <td class="boton-borrar" style="height:40px"*ngIf="publication.user._id ==identity._id">
+                        <td class="boton-borrar" style="height:40px"*ngIf="publication.user._id ==identity._id"style="border-radius:5%">
                           <br>
 
                           <button class="btn btn-light btn-sm" ><small>Remove</small></button>

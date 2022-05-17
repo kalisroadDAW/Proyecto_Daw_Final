@@ -33,7 +33,7 @@ figcaption.ratings a:hover
     }
 .emphasis:hover 
 {
-    border-top: 4px solid #1abc9c;
+    border-top: 4px solid rgb(13, 110, 253);
     }
 .emphasis h2
 {
@@ -41,7 +41,7 @@ figcaption.ratings a:hover
     }
 span.tags 
 {
-    background: #1abc9c;
+    background: rgb(13, 110, 253);
     border-radius: 2px;
     color: #f5f5f5;
     font-weight: bold;
@@ -108,7 +108,7 @@ span.tags
         margin-left: 10%;
         margin-bottom: 5%;
         box-shadow: 7px 5px 5px rgba(5, 20, 43, 0.39);
-        border: 3px solid rgb(6, 101, 179);
+        border: 5px solid rgb(13, 110, 253)
         
         
     
