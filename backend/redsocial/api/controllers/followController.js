@@ -137,12 +137,12 @@ function getMyFollows(req, res){
     }
 
     
-    find.populate( 'user followed').exec((err, following)=>{
+    find.populate( 'user followed').exec((err, follows)=>{
         if(err) return res.status(500).send({message: 'Error en la petición'});
-        if(!following) return res.status(404).send({message: 'No sigues a ningún usuario'});
+        if(!follows) return res.status(404).send({message: 'No sigues a ningún usuario'});
 
         return res.status(200).send({
-            following
+            follows
         });
 
  }  );

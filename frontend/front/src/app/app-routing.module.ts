@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PicsComponent } from './components/pics/pics.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
+import { InboxComponent } from './pages/inbox/inbox.component';
 import { MessageComponent } from './pages/message/message.component';
 
 import { PageLoginComponent } from './pages/page-login/page-login.component';
@@ -21,12 +22,11 @@ const routes: Routes = [
   {path: 'pictures', component: PicsComponent},
   {path: 'user/:id', component: ProfileComponent},
   {path: 'messages', component: MessageComponent},
+  {path: 'mymessages', component: InboxComponent},
+  {path: 'mymessages/:page', component: InboxComponent},
+  {path: 'messages/:page', component: MessageComponent},
   {path: '', component: PageLoginComponent},
  
-
-
-  
-
 ];
 
 @NgModule({

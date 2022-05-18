@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Message } from 'src/app/models/messageModel';
@@ -9,16 +8,12 @@ import { UserService } from 'src/app/services/user.service';
 import { FollowService } from 'src/app/services/follow.service';
 import { Follow } from 'src/app/models/follow';
 
-
-
-
-
 @Component({
-  selector: 'app-message',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.css']
+  selector: 'app-inbox',
+  templateUrl: './inbox.component.html',
+  styleUrls: ['./inbox.component.css']
 })
-export class MessageComponent implements OnInit {
+export class InboxComponent implements OnInit {
 
   public title: string;
   public message: Message;
@@ -33,7 +28,7 @@ export class MessageComponent implements OnInit {
   public prev_page: any;
   public pages: any;
   public page: any;
-  public total:any;
+  public total: any;
 
   constructor(
     private _route: ActivatedRoute,
@@ -41,8 +36,8 @@ export class MessageComponent implements OnInit {
     private _messageService: MessagesService,
     private _userService: UserService,
     private _followService: FollowService,
-    
-    
+
+
   ) {
 
     this.identity = this._userService.getidentity();
@@ -72,22 +67,22 @@ export class MessageComponent implements OnInit {
     );
   }
 
-  actualPage(){
+  actualPage() {
     this._route.params.subscribe(params => {
       let page = +params['page'];
       this.page = page;
-      if(!params['page']){
+      if (!params['page']) {
         page = 1;
       }
 
-      if(!page){
+      if (!page) {
         page = 1;
 
-      }else{  
-        this.next_page = page+1;
-        this.prev_page = page-1;
+      } else {
+        this.next_page = page + 1;
+        this.prev_page = page - 1;
 
-        if(this.prev_page <= 0){
+        if (this.prev_page <= 0) {
           this.prev_page = 1;
         }
 
@@ -95,7 +90,7 @@ export class MessageComponent implements OnInit {
       }
 
       // devolver listado de usuarios
-      this.getMessages(this.token, this.page);
+      this.getMyMessages(this.token, this.page);
 
 
     });
@@ -116,24 +111,31 @@ export class MessageComponent implements OnInit {
     );
   }
 
-  getMessages(page:any,token:any){
-    this._messageService.getEmmitMessages(this.token,this.page).subscribe(
-        response=>{
-            if(response.messages){
-                this.messages=response.messages;
-                console.log(this.messages);
-                this.total=response.total;
-                this.pages=response.pages;
-                
-                
-            }
-        },
-        error=>{
-          console.log(<any>error);
-       }
-   );
+  
+
+  getMyMessages(page: any, token: any){
+    this._messageService.getMyMessages(this.token, this.page).subscribe(
+      response => {
+        if (response.messages) {
+          this.messages = response.messages;
+          console.log(this.messages);
+          this.total = response.total;
+          this.pages = response.pages;
+
+
+        }
+      },
+      error => {
+        console.log(<any>error);
       }
-     
+    );
+  }
+  }
 
 
-}
+
+
+
+
+
+

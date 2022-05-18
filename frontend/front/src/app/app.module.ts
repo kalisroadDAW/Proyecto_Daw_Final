@@ -19,6 +19,7 @@ import { PublicationsComponent } from './components/publications/publications.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { PicsComponent } from './components/pics/pics.component';
 import { MessageComponent } from './pages/message/message.component';
+import { InboxComponent } from './pages/inbox/inbox.component';
 
 
 
@@ -38,6 +39,7 @@ import { MessageComponent } from './pages/message/message.component';
     ProfileComponent,
     PicsComponent,
     MessageComponent,
+    InboxComponent,
     
     
    

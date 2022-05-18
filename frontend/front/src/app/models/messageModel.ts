@@ -1,3 +1,4 @@
+
 export class Message {
     constructor(
         public _id: string,

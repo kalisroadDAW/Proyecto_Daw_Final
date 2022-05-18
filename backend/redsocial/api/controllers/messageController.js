@@ -1,6 +1,10 @@
+'use strict';
+
 var path = require('path'); //cargamos el path
 
 var fs = require('fs'); //cargamos el fs (libreria fs)
+
+var moment = require('moment');
 
 var mongoosePaginate = require('mongoose-pagination'); //cargamos el mongoose-pagination
 
@@ -19,7 +23,7 @@ function saveMessage(req, res) {
     if (!params.text || !params.receiver) return res.status(200).send({ message: 'envia los datos' });
 
     var message = new Message();
-    message.emmitter = req.user.sub;
+    message.emitter = req.user.sub;
     message.receiver = params.receiver;
     message.text = params.text;
     message.created_at = moment().unix();
@@ -38,9 +42,9 @@ function getReceivedMessages(req, res) {
         page - req.params.page;
     }
     var itemsPerPage = 4;
-    Message.find({ receiver: userId }).populate('emitter', 'nick', 'image', '_id').paginate(page, itemsPerPage, (err, messages, total) => {
+    Message.find({ receiver: userId }).populate('emitter receiver', 'name surname image nick _id').paginate(page, itemsPerPage, (err, messages, total) => {
         if (err) return res.status(500).send({ message: 'Error en la petición' });
-        if (Imessages) return res.status(404).send({ message: 'No hay mensajes' }); I
+        if (!messages) return res.status(404).send({ message: 'No hay mensajes' }); 
         return res.status(200).send({
             total: total,
             pages: Math.ceil(total / itemsPerPage),
@@ -58,7 +62,7 @@ function getEmmitMessages(req, res) {
     var itemsPerPage = 4;
     Message.find({ emitter: userId }).populate('emitter receiver', 'name surname image nick _id').paginate(page, itemsPerPage, (err, messages, total) => {
         if (err) return res.status(500).send({ message: 'Error en la petición' });
-        if (Imessages) return res.status(404).send({ message: 'No hay mensajes' });
+        if (!messages) return res.status(404).send({ message: 'No hay mensajes' });
         return res.status(200).send({
             total: total,
             pages: Math.ceil(total / itemsPerPage),
@@ -80,7 +84,7 @@ function getUnviewedMessages(req, res) {
 function setViewedMessages(req, res) {
     var userId = req.user.sub;
     I
-    Message.update({ receiver: userId, viewed: 'false' }, { viewed: 'true' }, { "multi": true }, (err, messagesUpdated) => {
+    Message.updateOne({ receiver: userId, viewed: 'false' }, { viewed: 'true' }, { "multi": true }, (err, messagesUpdated) => {
         if (err) return res.status(500).send({ message: 'Error en la petición' });
         return res.status(200).send({
             messages: messagesUpdated

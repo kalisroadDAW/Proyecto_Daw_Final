@@ -15,6 +15,12 @@
         <li class="nav-item">
           <a class="nav-link" href="mis-datos">My data</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/messages/1">Sended Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mymessages">Received Messages</a>
+        </li>
       </ul>
       <a [routerLink]="'user/this.user_id'"><span class="navbar-text">
         <img *ngIf="identity && identity.image else elseblock"  src="{{url+ 'get-image-user/' + identity.image}}" class="rounded-circle"  alt="Avatar" /> 
@@ -25,16 +31,7 @@
       </a>
 
         
-       
-      
-      
-       
 
-      
-
-     
-
-     
       <span class="navbar-text">
          
         <a class="btn btn" href="/login" (click)="logout()">Logout</a>
