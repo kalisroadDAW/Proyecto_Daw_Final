@@ -35,4 +35,6 @@ export class FollowService {
                                     .set('Authorization', token);
     return this. _http.get(this.url+'get-my-follows/'+ true ,{headers: headers});
 }
+
+
 }

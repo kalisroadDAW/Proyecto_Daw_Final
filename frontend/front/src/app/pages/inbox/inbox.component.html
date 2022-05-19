@@ -3,8 +3,8 @@
 
 <div class="enviar">
     <div class="alert alert-success" *ngIf="status =='success'">
-        Has enviado el mensaje correctamente,miralo en <a [routerLink]="['enviados']"> tus
-        mensajes enviados </a>
+        Has enviado el mensaje correctamente,miralo en tus
+        mensajes enviados 
     </div>
     <div class="alert alert-danger"*ngIf="status =='error'">
         No se ha podido enviar el mensaje correcamtente.Intentalo mas tarde
@@ -76,7 +76,7 @@
                               
                             </div>
                             <span style="border-radius:5%"><article class="cita" style="text-align:justify; margin-left:10px;border-radius:5%">
-                              <small>{{ (message.created_at|  amFromUnix | amLocale:'gb' | amTimeAgo) }} to {{message.receiver.nick}}</small>
+                              <small>{{ (message.created_at|  amFromUnix | amLocale:'gb' | amTimeAgo) }} from {{message.emitter.nick}}</small>
                               <span class="nickname">
                                
                                

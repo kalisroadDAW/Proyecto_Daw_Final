@@ -3,8 +3,8 @@
 
 <div class="enviar">
     <div class="alert alert-success" *ngIf="status =='success'">
-        Has enviado el mensaje correctamente,miralo en <a [routerLink]="['enviados']"> tus
-        mensajes enviados </a>
+        Has enviado el mensaje correctamente, miralo en tus
+        mensajes enviados 
     </div>
     <div class="alert alert-danger"*ngIf="status =='error'">
         No se ha podido enviar el mensaje correcamtente.Intentalo mas tarde
@@ -37,7 +37,7 @@
 
           
           </div>
-          <button type="submit" value="{{title}}" class=" btn btn-primary"> Send Message </button>
+          <button type="submit" value="{{title}}" class=" btn btn-primary" > Send Message </button>
     </form>
 </div> 
 

@@ -135,7 +135,7 @@ export class TimelineComponent implements OnInit {
           }
           console.log(response);
           if (page > this.pages) {
-            this._router.navigate(['/home']);
+            this._router.navigate(['/timeline']);
 
           }
         } else {
@@ -157,19 +157,16 @@ export class TimelineComponent implements OnInit {
   public noMore = false;
 
   viewMore(){
-   if(this.publications.length == this.total){
-     
-     this.noMore=true;
-     
-   }else{
-    this.page+=1;
-
-   }
-   this.getPublications(this.page,true);
-  }
+    this.page += 1;
+    if(this.page == this.pages){
+        this.noMore = true;
+    }
+    this.getPublications(this.page, true);
+}
 
   refresh(event: any) {
     this.getPublications(1);
+    
   }
 
   

@@ -87,7 +87,9 @@ export class UserService {
       else{
       this.stats = null;
       }
+     
       return this.stats;
+      
       
     }
 
@@ -98,6 +100,8 @@ export class UserService {
       if(userId!=null){
         return this._http.get(this.url+'counters/'+userId, {headers: headers});
       }else{
+        this.getStats();
+        console.log(this.stats);
         return this._http.get(this.url+'counters', {headers: headers});
       }
       

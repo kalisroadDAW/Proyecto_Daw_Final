@@ -57,6 +57,8 @@ export class MessageComponent implements OnInit {
     this.actualPage();
   }
 
+ 
+
   onSubmit() {
     this._messageService.addMessage(this.token, this.message).subscribe(
       response => {

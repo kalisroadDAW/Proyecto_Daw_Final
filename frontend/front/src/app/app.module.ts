@@ -24,6 +24,7 @@ import { InboxComponent } from './pages/inbox/inbox.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { InboxComponent } from './pages/inbox/inbox.component';
     PicsComponent,
     MessageComponent,
     InboxComponent,
+
     
     
    

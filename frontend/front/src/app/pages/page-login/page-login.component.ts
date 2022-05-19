@@ -87,6 +87,7 @@ export class PageLoginComponent implements OnInit {
           
           // PERSISTIR DATOS
           localStorage.setItem('token', JSON.stringify(this.token));
+          this.getCounters();
           
         }
       },

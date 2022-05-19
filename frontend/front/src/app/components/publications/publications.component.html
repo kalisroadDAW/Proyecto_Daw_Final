@@ -62,7 +62,8 @@
                 </table>
                 <div class="text-center mt-3 mt-sm-3">
                   <ul *ngIf="publications && publications.length" class="pagination justify-content-center mb-0">
-                    <li *ngIf="noMore==false" class="page-item"><a class="page-link" (click)="viewMore()">Ver más publicaciones</a></li>
+                    <li *ngIf="noMore==false" class="page-item"><a class="page-link" (click)="viewMore()">See More</a></li>
+                    <li *ngIf="noMore==true" class="page-item"><a class="page-link">You are up to date!</a></li> 
                   </ul>
                 </div>
               </div>

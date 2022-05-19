@@ -17,11 +17,11 @@
                    
                       <div class="thumb" style="width: 150px; text-align: justify; margin-bottom:10px">
                         <td class="title">
-                        <strong><a href="/user/{{publication.user._id}}">{{publication.user.nick}}</a></strong>
+                        <strong><a href="user/{{publication.user._id}}">{{publication.user.nick}}</a></strong>
                         
                       </td>
                       
-                        <a href="/user/{{publication.user._id}}" style="margin-left:1px;"><img *ngIf="publication.user.image"  src="{{url+ 'get-image-user/' + publication.user.image}}"
+                        <a href="user/{{publication.user._id}}" style="margin-left:1px;"><img *ngIf="publication.user.image"  src="{{url+ 'get-image-user/' + publication.user.image}}"
                           class="avatar-timeline"  alt="Avatar" /> 
                       </a>
                        <ng-template #elseblock>
@@ -69,9 +69,9 @@
               </table>
               <div class="text-center mt-3 mt-sm-3">
                 <ul class="pagination justify-content-center mb-0">
-                  <li *ngIf="noMore==false" class="page-item"><a class="page-link" (click)="viewMore()">Ver más publicaciones</a></li>
-                  <li *ngIf="noMore==true" class="page-item"><a class="page-link" (click)="viewMore()">No hay más publicaciones</a></li>
-                  <li><button type="button" class="btn btn-primary pull-right" (click)="refresh($event)" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Refresh</button></li>
+                  <li *ngIf="!noMore" class="page-item"><a class="page-link" (click)="viewMore()">See More</a></li>
+                   <li *ngIf="noMore==true" class="page-item"><a class="page-link">You are up to date!</a></li> 
+                  <li style="margin-left:5%"><button type="button" class="btn btn-primary pull-right" (click)="refresh($event)" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">latest Publications</button></li>
                 </ul>
               </div>
             </div>
